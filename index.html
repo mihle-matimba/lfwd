@@ -15,7 +15,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #0A0D14; /* Slightly bluer dark background */
+  background: #0A0D14;
   color: #F2F5F8;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -49,7 +49,6 @@ body::before {
   --border: rgba(59, 130, 246, 0.16);
   --border-hi: rgba(59, 130, 246, 0.40);
   
-  /* Retaining variable names for internal CSS to minimize changes */
   --gold: var(--blue);
   --gold-lt: var(--blue-lt);
   --gold-dk: var(--blue-dk);
@@ -121,7 +120,7 @@ nav {
 .nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
 
 /* ════════════════════════════════
-   HERO — THE IMAN STYLE SECTION
+   HERO
 ════════════════════════════════ */
 #hero {
   position: relative;
@@ -129,8 +128,6 @@ nav {
   text-align: center;
   overflow: hidden;
 }
-
-/* Big ambient radial behind the whole hero */
 #hero::after {
   content: '';
   position: absolute;
@@ -140,10 +137,7 @@ nav {
   pointer-events: none;
   z-index: 0;
 }
-
 .hero-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
-
-/* EYEBROW */
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -166,8 +160,6 @@ nav {
   flex-shrink: 0;
 }
 @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(59,130,246,0.5)} 50%{opacity:.4;box-shadow:0 0 0 6px rgba(59,130,246,0)} }
-
-/* MAIN HEADLINE */
 .hero-h1 {
   font-size: clamp(38px, 6.5vw, 82px);
   font-weight: 900;
@@ -190,7 +182,6 @@ nav {
   letter-spacing: 0.02em;
   margin: 6px 0;
 }
-
 .hero-sub {
   font-size: 15px;
   font-weight: 400;
@@ -202,15 +193,13 @@ nav {
 .hero-sub strong { color: var(--white); font-weight: 600; }
 
 /* ════════════════════════════════
-   VSL — VIDEO SALES LETTER
+   VSL
 ════════════════════════════════ */
 .vsl-wrapper {
   position: relative;
   max-width: 840px;
   margin: 0 auto;
 }
-
-/* Blue top-line on the video container */
 .vsl-wrapper::before {
   content: '';
   position: absolute;
@@ -219,7 +208,6 @@ nav {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   z-index: 2;
 }
-
 .vsl-container {
   background: #000;
   border: 1px solid var(--border-hi);
@@ -228,8 +216,6 @@ nav {
   overflow: hidden;
   cursor: pointer;
 }
-
-/* Fake video thumbnail bg */
 .vsl-thumb {
   position: absolute;
   inset: 0;
@@ -241,8 +227,6 @@ nav {
   gap: 20px;
   transition: opacity 0.3s;
 }
-
-/* Grid lines on thumbnail — Iman aesthetic */
 .vsl-grid {
   position: absolute;
   inset: 0;
@@ -251,15 +235,11 @@ nav {
     linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
   background-size: 50px 50px;
 }
-
-/* Corner accents */
 .corner { position: absolute; width: 24px; height: 24px; }
 .corner.tl { top: 16px; left: 16px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
 .corner.tr { top: 16px; right: 16px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
 .corner.bl { bottom: 16px; left: 16px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
 .corner.br { bottom: 16px; right: 16px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
-
-/* Play button */
 .play-btn {
   width: 80px; height: 80px;
   border-radius: 50%;
@@ -282,7 +262,6 @@ nav {
   border-left-color: #fff;
   margin-left: 5px;
 }
-
 .vsl-title {
   font-size: 14px;
   font-weight: 600;
@@ -300,8 +279,6 @@ nav {
   text-transform: uppercase;
   position: relative; z-index: 2;
 }
-
-/* Progress bar */
 .vsl-progress {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -314,8 +291,6 @@ nav {
   background: var(--gold);
   transition: width 0.3s;
 }
-
-/* YouTube embed (hidden by default) */
 .vsl-embed {
   position: absolute;
   inset: 0;
@@ -323,13 +298,7 @@ nav {
   height: 100%;
   display: none;
 }
-.vsl-embed iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* AFTER-VIDEO CTA — hidden, revealed after "watching" */
+.vsl-embed iframe { width: 100%; height: 100%; border: none; }
 .vsl-cta-reveal {
   max-width: 840px;
   margin: 0 auto;
@@ -345,21 +314,7 @@ nav {
   position: relative;
 }
 .vsl-cta-reveal.show { display: flex; }
-.vsl-cta-reveal::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.vsl-cta-reveal p {
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* Video timer counter */
+.vsl-cta-reveal p { font-size: 13px; color: var(--muted); font-weight: 500; }
 .vsl-timer {
   position: absolute;
   top: 14px; right: 20px;
@@ -514,8 +469,6 @@ nav {
   line-height: 1.9;
 }
 .s-body strong { color: var(--white); font-weight: 600; }
-
-/* Centre variant */
 .text-center { text-align: center; }
 .text-center .s-body { margin: 0 auto; }
 
@@ -582,7 +535,6 @@ nav {
 .corner-acc { position: absolute; width: 20px; height: 20px; }
 .corner-acc.tl { top: 16px; left: 16px; border-top: 2px solid var(--gold-dk); border-left: 2px solid var(--gold-dk); }
 .corner-acc.tr { top: 16px; right: 16px; border-top: 2px solid var(--gold-dk); border-right: 2px solid var(--gold-dk); }
-
 .story-content h2 {
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 900;
@@ -654,6 +606,7 @@ nav {
    WHAT'S INSIDE
 ════════════════════════════════ */
 #inside { background: #0F172A; }
+.module-list { display: flex; flex-direction: column; }
 .module {
   display: grid;
   grid-template-columns: 72px 1fr auto;
@@ -663,6 +616,7 @@ nav {
   background: #0F172A;
   border-bottom: 1px solid var(--border);
   transition: background 0.2s;
+  cursor: default;
 }
 .module:first-child { border-top: 1px solid var(--border); }
 .module:hover { background: #131A26; }
@@ -678,7 +632,7 @@ nav {
   color: var(--white);
   text-transform: uppercase;
 }
-.mod-desc { font-size: 13px; color: var(--muted); }
+.mod-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
 .mod-tag {
   font-size: 9px;
   font-weight: 800;
@@ -687,6 +641,7 @@ nav {
   color: var(--gold);
   border: 1px solid var(--gold-dk);
   padding: 5px 12px;
+  white-space: nowrap;
 }
 
 /* BONUS CARDS */
@@ -706,14 +661,30 @@ nav {
 .bonus-tag {
   font-size: 9px;
   font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
 }
+.bonus-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.bonus-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
 /* ════════════════════════════════
    TESTIMONIALS
 ════════════════════════════════ */
 #proof { background: #0A0D14; }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 .testi-card {
   background: #0D111A;
   border: 1px solid var(--border);
@@ -721,13 +692,36 @@ nav {
   transition: border-color 0.2s;
 }
 .testi-card:hover { border-color: var(--gold-dk); }
-.stars { color: var(--gold); }
+.stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 18px; }
 .testi-q {
   font-family: 'Libre Baskerville', serif;
   font-style: italic;
   font-size: 16px;
   color: var(--white);
+  line-height: 1.75;
+  margin-bottom: 22px;
+  position: relative;
 }
+.testi-q::before {
+  content: '\201C';
+  font-size: 44px;
+  color: var(--gold);
+  line-height: 0;
+  position: absolute;
+  top: 16px; left: -6px;
+  opacity: 0.5;
+}
+.t-row { display: flex; align-items: center; gap: 12px; }
+.av {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(59,130,246,0.1);
+  border: 1px solid var(--gold-dk);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: var(--gold); flex-shrink: 0;
+}
+.t-name { font-size: 13px; font-weight: 700; color: var(--white); }
+.t-loc { font-size: 11px; color: var(--gold-dk); margin-top: 2px; letter-spacing: 0.06em; }
 
 /* Results strip */
 .results-strip {
@@ -736,6 +730,7 @@ nav {
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
+  margin-top: 50px;
 }
 .result-box {
   background: #0D111A;
@@ -746,12 +741,28 @@ nav {
   font-size: 46px;
   font-weight: 900;
   color: var(--gold);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.result-l {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* ════════════════════════════════
    PRICING
 ════════════════════════════════ */
 #pricing { background: #0F172A; }
+.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
 .plan {
   background: #0A0D14;
   border: 1px solid var(--border);
@@ -794,52 +805,89 @@ nav {
    FAQ
 ════════════════════════════════ */
 #faq { background: #0A0D14; }
+.faq-wrap { max-width: 720px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--border); cursor: pointer; }
-.faq-toggle { color: var(--gold); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding: 22px 0; font-size: 15px; font-weight: 600; color: var(--white);
+}
+.faq-toggle { font-size: 24px; color: var(--gold); transition: transform 0.25s; }
+.faq-a {
+  font-size: 14px; color: var(--muted); line-height: 1.9;
+  max-height: 0; overflow: hidden; transition: max-height 0.38s ease, padding 0.2s;
+}
+.faq-item.open .faq-a { max-height: 400px; padding-bottom: 22px; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
 
 /* ════════════════════════════════
-   FINAL CTA SECTION
+   BENEFITS SECTION
 ════════════════════════════════ */
-#cta-close {
-  padding: 120px 6%;
-  text-align: center;
-  background: #000;
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+.benefit-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 40px;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
 }
-#cta-close::before {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: 50%; transform: translateX(-50%);
-  width: 1000px; height: 600px;
-  background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, transparent 65%);
-}
+.benefit-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+.ben-icon { font-size: 32px; margin-bottom: 20px; display: block; }
+.ben-title { font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; color: var(--white); }
+.ben-body { font-size: 15px; color: var(--muted); line-height: 1.8; }
+
+/* ════════════════════════════════
+   ROADMAP
+════════════════════════════════ */
+.roadmap { display: flex; justify-content: space-between; gap: 20px; margin-top: 80px; position: relative; }
+.roadmap::before { content: ''; position: absolute; top: 30px; left: 0; right: 0; height: 1px; background: var(--border); z-index: 0; }
+.step { flex: 1; text-align: center; position: relative; z-index: 1; }
+.step-dot { width: 60px; height: 60px; background: #000; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 20px; font-weight: 900; color: var(--gold); }
+.step-title { font-size: 14px; font-weight: 800; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.step-desc { font-size: 12px; color: var(--muted); line-height: 1.6; max-width: 180px; margin: 0 auto; }
+
+/* ════════════════════════════════
+   FINAL CTA
+════════════════════════════════ */
+#cta-close { padding: 120px 6%; text-align: center; background: #000; position: relative; overflow: hidden; }
+#cta-close::before { content: ''; position: absolute; bottom: -30%; left: 50%; transform: translateX(-50%); width: 1000px; height: 600px; background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, transparent 65%); }
+.cta-close-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-close-inner h2 { font-size: clamp(40px, 6vw, 80px); font-weight: 900; text-transform: uppercase; line-height: 1.0; color: var(--white); margin-bottom: 18px; }
 .cta-close-inner h2 span { color: var(--gold); }
+.scarcity { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: var(--gold); margin-bottom: 30px; }
+.scarcity .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
 
 /* ════════════════════════════════
    FOOTER
 ════════════════════════════════ */
-footer {
-  background: #000;
-  border-top: 1px solid var(--border);
-  padding: 40px 6%;
-}
-.f-logo { color: var(--gold); }
+footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%; }
+.f-logo { font-size: 10px; font-weight: 800; color: var(--gold); }
+.f-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.f-links a { font-size: 10px; font-weight: 600; color: var(--muted2); }
 
 /* ════════════════════════════════
-   SCROLL REVEAL
+   RESPONSIVE
 ════════════════════════════════ */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
 @media (max-width: 900px) {
   .story-grid { grid-template-columns: 1fr; }
   .pain-grid { grid-template-columns: 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
   .results-strip { grid-template-columns: 1fr 1fr; }
   .plans { grid-template-columns: 1fr; }
-  .bonus-row { grid-template-columns: 1fr; }
+  .roadmap { flex-direction: column; align-items: center; }
+  .roadmap::before { display: none; }
 }
+
+/* ════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -876,18 +924,13 @@ footer {
       <div class="vsl-container" id="vslContainer">
         <div class="vsl-thumb" id="vslThumb">
           <div class="vsl-grid"></div>
-          <div class="corner tl"></div>
-          <div class="corner tr"></div>
-          <div class="corner bl"></div>
-          <div class="corner br"></div>
+          <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
           <div class="play-btn" id="playBtn"></div>
           <p class="vsl-title">Dwayno — "The MDM Method: How I Trade for a Living"</p>
           <p class="vsl-dur">47 min free masterclass · No sign-up required</p>
         </div>
         <div class="vsl-timer" id="vslTimer">00:00</div>
-        <div class="vsl-progress">
-          <div class="vsl-progress-inner" id="vslProgress"></div>
-        </div>
+        <div class="vsl-progress"><div class="vsl-progress-inner" id="vslProgress"></div></div>
       </div>
       <div class="vsl-cta-reveal" id="vslCta">
         <p>Ready to join the community that's actually changing lives?</p>
@@ -906,12 +949,20 @@ footer {
   <div class="proof-item"><strong>Daily</strong> Live Signals</div>
 </div>
 
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="tick-item">🔥 <em>Kagiso</em> from Soweto — first R4,200 profit this week</span>
+    <span class="tick-item">📈 <em>Thabo</em> from Durban — first green week using MDM signals</span>
+    <span class="tick-item">🏆 <em>Amahle</em> from Cape Town — quit her 9–5 after 8 months in MDM</span>
+    <span class="tick-item">🔥 <em>Sipho</em> from Joburg — went from blowing 3 accounts to profitable in 60 days</span>
+  </div>
+</div>
+
 <section id="story" class="section">
   <div class="section-inner">
     <div class="story-grid">
       <div class="story-portrait reveal">
-        <div class="portrait-watermark">MDM</div>
-        <div class="portrait-lines"></div>
+        <div class="portrait-watermark">MDM</div><div class="portrait-lines"></div>
         <div class="portrait-tag">
           <div class="portrait-name">Dwayno</div>
           <div class="portrait-ig">@livefullywithdwayno · Forex & Indices Trader</div>
@@ -921,11 +972,98 @@ footer {
         <div class="tag reveal">The person behind MDM</div>
         <h2 class="reveal">From Broke<br>to <span>Building</span><br>Real Freedom</h2>
         <p class="reveal">Dwayno didn't come from money. Early on he sat at screens for years — blew accounts, studied charts obsessively, and eventually cracked something real.</p>
-        <div class="pull-quote reveal">
-          "I didn't just want to be profitable. I wanted to live fully — and trade freely."
-        </div>
+        <div class="pull-quote reveal">"I didn't just want to be profitable. I wanted to live fully — and trade freely."</div>
         <a class="btn-main reveal" href="#pricing">Join MDM Community →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits" class="section" style="background: #0A0D14; border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="text-center reveal">
+      <div class="tag">Why MDM Works</div>
+      <h2 class="s-h2">The <span>Core Benefits</span> of Joining</h2>
+      <p class="s-body">We don't just give you a strategy. We give you the entire ecosystem required to actually win in the markets over the long term.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <span class="ben-icon">🦅</span><h3 class="ben-title">Financial Freedom</h3>
+        <p class="ben-body">Stop trading your time for a fixed salary. Learn the skill that allows you to generate income from anywhere in the world.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="ben-icon">🧠</span><h3 class="ben-title">Mental Mastery</h3>
+        <p class="ben-body">We install the professional mindset required to navigate risk without emotion.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="ben-icon">🌍</span><h3 class="ben-title">Global Community</h3>
+        <p class="ben-body">Connect with 2,400+ traders scaling together. Real-time feedback and support.</p>
+      </div>
+      <div class="benefit-card reveal">
+        <span class="ben-icon">⚔️</span><h3 class="ben-title">The MDM Edge</h3>
+        <p class="ben-body">A battle-tested methodology engineered for high-probability setups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pain" class="section">
+  <div class="section-inner">
+    <div class="pain-head reveal text-center">
+      <div class="tag">Does this sound like you?</div>
+      <h2 class="s-h2">If Any of This Is <span>You</span>,<br>Keep Reading.</h2>
+    </div>
+    <div class="pain-grid reveal">
+      <div class="pain-card"><div class="p-num">01</div><div class="p-title">You Keep Blowing Your Account</div><p class="p-body">One good week, three bad ones. You lack a consistent edge.</p></div>
+      <div class="pain-card"><div class="p-num">02</div><div class="p-title">You're Drowning in Free Content</div><p class="p-body">YouTube and TikTok aren't strategies. You need structure.</p></div>
+      <div class="pain-card"><div class="p-num">03</div><div class="p-title">You're Trading Alone</div><p class="p-body">Isolation is the fastest way to blow an account.</p></div>
+    </div>
+
+    <div class="text-center reveal" style="margin-top: 100px;">
+      <div class="tag">The Path to Mastery</div>
+      <h2 class="s-h2">How It <span>Works</span></h2>
+    </div>
+    <div class="roadmap reveal">
+      <div class="step"><div class="step-dot">01</div><h4 class="step-title">Join & Immerse</h4><p class="step-desc">Get instant access to the core curriculum.</p></div>
+      <div class="step"><div class="step-dot">02</div><h4 class="step-title">Master the Method</h4><p class="step-desc">Learn to identify high-probability setups.</p></div>
+      <div class="step"><div class="step-dot">03</div><h4 class="step-title">Shadow & Signal</h4><p class="step-desc">Watch Dwayno trade live daily.</p></div>
+      <div class="step"><div class="step-dot">04</div><h4 class="step-title">Trade Free</h4><p class="step-desc">Independent mastery and wealth building.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="inside" class="section">
+  <div class="section-inner">
+    <div class="inside-head reveal text-center">
+      <div class="tag">What's Inside</div>
+      <h2 class="s-h2">The MDM <span>Ecosystem</span></h2>
+    </div>
+    <div class="module-list reveal">
+      <div class="module"><div class="mod-num">01</div><div><div class="mod-title">Core Methodology</div><div class="mod-desc">The full system Dwayno uses every day.</div></div><div class="mod-tag">Foundation</div></div>
+      <div class="module"><div class="mod-num">02</div><div><div class="mod-title">Daily Live Signals</div><div class="mod-desc">Real-time setups with full reasoning.</div></div><div class="mod-tag">Daily</div></div>
+      <div class="module"><div class="mod-num">03</div><div><div class="mod-title">Weekly Live Sessions</div><div class="mod-desc">Interactive breakdowns with Dwayno.</div></div><div class="mod-tag">Weekly</div></div>
+    </div>
+    <div class="bonus-row reveal">
+      <div class="bonus-card"><div class="bonus-tag">Bonus 01</div><div class="bonus-title">Prop Firm Prep</div><p class="bonus-body">Get funded faster with our specific playbook.</p></div>
+      <div class="bonus-card"><div class="bonus-tag">Bonus 02</div><div class="bonus-title">Market Session Guide</div><p class="bonus-body">Master the timing of London and New York.</p></div>
+      <div class="bonus-card"><div class="bonus-tag">Bonus 03</div><div class="bonus-title">Psychology Vault</div><p class="bonus-body">Frameworks for total emotional control.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="section">
+  <div class="section-inner">
+    <div class="testi-head reveal text-center">
+      <div class="tag">Real Results</div>
+      <h2 class="s-h2">Member <span>Success Stories</span></h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">I blew 2 accounts before MDM. Now I'm consistent.</p><div class="t-row"><div class="av">LM</div><div><div class="t-name">Lungelo M.</div><div class="t-loc">Joburg</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">Dwayno’s live sessions are a game changer.</p><div class="t-row"><div class="av">NK</div><div><div class="t-name">Nandi K.</div><div class="t-loc">Durban</div></div></div></div>
+    </div>
+    <div class="results-strip reveal">
+      <div class="result-box"><div class="result-n">2,400+</div><div class="result-l">Members</div></div>
+      <div class="result-box"><div class="result-n">83%</div><div class="result-l">Win Rate</div></div>
     </div>
   </div>
 </section>
@@ -936,31 +1074,50 @@ footer {
       <div class="tag">Choose your path</div>
       <h2 class="s-h2">Join MDM <span>Trading</span> Community</h2>
     </div>
-    <div class="plans reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 40px auto 0;">
+    <div class="plans reveal">
       <div class="plan">
-        <div class="plan-name">MDM Core</div>
-        <div class="plan-price" style="font-size: 48px; font-weight: 900; color: #fff;">R397</div>
-        <div class="plan-period">per month</div>
+        <div class="plan-name">MDM Core</div><div class="plan-price" style="font-size: 48px; font-weight: 900; color: #fff;">R397</div><div class="plan-period">per month</div>
         <button class="plan-btn outline" onclick="window.location.href='#pricing'">Start with Core →</button>
       </div>
       <div class="plan featured">
-        <div class="plan-name">MDM Elite</div>
-        <div class="plan-price" style="font-size: 48px; font-weight: 900; color: #fff;">R797</div>
-        <div class="plan-period">per month</div>
+        <div class="plan-name">MDM Elite</div><div class="plan-price" style="font-size: 48px; font-weight: 900; color: #fff;">R797</div><div class="plan-period">per month</div>
+        <div style="margin: 20px 0; padding: 15px; background: rgba(59,130,246,0.1); border-left: 3px solid var(--gold);">
+          <div style="font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">Elite Exclusive</div>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 5px;">Includes **Weekly Live Masterclasses** and **Direct 1-on-1 Mentorship** access.</p>
+        </div>
         <button class="plan-btn" onclick="window.location.href='#pricing'">Join MDM Elite →</button>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="f-logo">
-    MDM Trading
-    <sub>by @livefullywithdwayno</sub>
+<section id="faq" class="section">
+  <div class="section-inner">
+    <div class="faq-head reveal text-center">
+      <div class="tag">FAQ</div>
+      <h2 class="s-h2">Common <span>Questions</span></h2>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item" onclick="faqToggle(this)"><div class="faq-q">Do I need experience? <span class="faq-toggle">+</span></div><div class="faq-a">None. Training starts from absolute zero.</div></div>
+      <div class="faq-item" onclick="faqToggle(this)"><div class="faq-q">How much capital? <span class="faq-toggle">+</span></div><div class="faq-a">As little as $100 works for beginners.</div></div>
+    </div>
   </div>
-  <p style="font-size: 10px; color: var(--muted2); margin-top: 20px;">
-    © 2025 MDM Trading · All rights reserved
-  </p>
+</section>
+
+<section id="cta-close">
+  <div class="cta-close-inner">
+    <div class="scarcity reveal"><span class="dot"></span>Limited spots — MDM Elite is open</div>
+    <h2 class="reveal">Your Next Trade Could <span>Be Different.</span></h2>
+    <a class="btn-main reveal" href="#pricing">Join MDM Trading Community →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; border-bottom:1px solid var(--border); padding-bottom:30px; margin-bottom:30px;">
+    <div class="f-logo">MDM Trading<sub>by @livefullywithdwayno</sub></div>
+    <div class="f-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="https://instagram.com/livefullywithdwayno" target="_blank">Instagram</a></div>
+  </div>
+  <p style="font-size: 10px; color: var(--muted2); line-height:1.7;">© 2025 MDM Trading · All rights reserved · Trade responsibly.</p>
 </footer>
 
 <script>
@@ -974,11 +1131,16 @@ const revealObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.10 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
+function faqToggle(el) {
+  const open = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!open) el.classList.add('open');
+}
+
 let vslPlaying = false;
 let vslSeconds = 0;
 let vslInterval = null;
 const TOTAL_SECONDS = 47 * 60;
-
 const playBtn = document.getElementById('playBtn');
 const vslThumb = document.getElementById('vslThumb');
 const vslTimer = document.getElementById('vslTimer');
@@ -986,31 +1148,22 @@ const vslProgress = document.getElementById('vslProgress');
 const vslCta = document.getElementById('vslCta');
 const vslContainer = document.getElementById('vslContainer');
 
-function formatTime(s) {
-  const m = Math.floor(s / 60);
-  const sec = s % 60;
-  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
-}
-
 function startVSL() {
   if (vslPlaying) return;
   vslPlaying = true;
   vslThumb.style.opacity = '0';
   vslThumb.style.pointerEvents = 'none';
   vslTimer.style.display = 'block';
-  setTimeout(() => {
-    vslCta.classList.add('show');
-  }, 2000);
+  setTimeout(() => { vslCta.classList.add('show'); }, 2000);
   vslInterval = setInterval(() => {
     vslSeconds++;
-    vslTimer.textContent = formatTime(vslSeconds);
-    vslProgress.style.width = ((vslSeconds / TOTAL_SECONDS) * 100) + '%';
+    if (vslTimer) vslTimer.textContent = `${Math.floor(vslSeconds/60).toString().padStart(2,'0')}:${(vslSeconds%60).toString().padStart(2,'0')}`;
+    if (vslProgress) vslProgress.style.width = ((vslSeconds / TOTAL_SECONDS) * 100) + '%';
     if (vslSeconds >= TOTAL_SECONDS) clearInterval(vslInterval);
   }, 1000);
 }
-
-playBtn.addEventListener('click', startVSL);
-vslContainer.addEventListener('click', () => { if (!vslPlaying) startVSL(); });
+if (playBtn) playBtn.addEventListener('click', startVSL);
+if (vslContainer) vslContainer.addEventListener('click', () => { if (!vslPlaying) startVSL(); });
 </script>
 
 </body>
