@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MDM Trading — Free Training with Dwayno</title>
+<title>LFWD — Free Trading Education & Community</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -193,8 +193,102 @@ nav {
 .hero-sub strong { color: var(--white); font-weight: 600; }
 
 /* ════════════════════════════════
-   VSL
+   PROCESS STEPS (replaces VSL)
 ════════════════════════════════ */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 840px;
+  margin: 0 auto 60px;
+}
+.process-step {
+  text-align: center;
+}
+.process-num {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.process-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.process-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.free-banner {
+  background: rgba(59,130,246,0.08);
+  border: 1px solid var(--border-hi);
+  padding: 48px;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+.free-price {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.free-price span {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.free-value {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.free-value strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* ════════════════════════════════
+   PORTRAIT IMAGE (for founder photo)
+════════════════════════════════ */
+.portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* ════════════════════════════════
+   FREE PLAN BOX
+════════════════════════════════ */
+.free-plan-box {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #0D111A;
+  border: 1px solid var(--border-hi);
+  padding: 60px 48px;
+  text-align: center;
+}
+.plan-content {
+  text-align: left;
+}
+.plan-content .plan-name {
+  text-align: center;
+}
+.plan-content ul li {
+  text-align: left;
+}
+
+
 .vsl-wrapper {
   position: relative;
   max-width: 840px;
@@ -878,7 +972,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   .pain-grid { grid-template-columns: 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
   .results-strip { grid-template-columns: 1fr 1fr; }
-  .plans { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
   .roadmap { flex-direction: column; align-items: center; }
   .roadmap::before { display: none; }
 }
@@ -893,13 +987,13 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 <body>
 
 <div class="topbar">
-  🔥 Limited Spots Available — MDM Elite Community Now Open
-  <span>Close this to skip the waiting list</span>
+  🔥 100% Free Access — LFWD Community Now Open
+  <span>Start your free trading journey today</span>
 </div>
 
 <nav>
   <div class="logo">
-    MDM Trading
+    LFWD
     <sub>@livefullywithdwayno</sub>
   </div>
   <a class="nav-cta" href="#pricing">Join the Community →</a>
@@ -917,26 +1011,30 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
       Through <span class="gold">Trading</span> — In 2025
     </h1>
     <p class="hero-sub reveal">
-      Dwayno breaks down the <strong>exact MDM system</strong> he uses daily. No theory. No fluff. <strong>Just what actually works.</strong>
+      Get <strong>completely free access</strong> to professional trading education, live signals, community support, and exclusive tools. <strong>Zero upfront cost.</strong>
     </p>
 
-    <div class="vsl-wrapper reveal" id="vslWrapper">
-      <div class="vsl-container" id="vslContainer">
-        <div class="vsl-thumb" id="vslThumb">
-          <div class="vsl-grid"></div>
-          <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-          <div class="play-btn" id="playBtn"></div>
-          <p class="vsl-title">Dwayno — "The MDM Method: How I Trade for a Living"</p>
-          <p class="vsl-dur">47 min free masterclass · No sign-up required</p>
-        </div>
-        <div class="vsl-timer" id="vslTimer">00:00</div>
-        <div class="vsl-progress"><div class="vsl-progress-inner" id="vslProgress"></div></div>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3 class="process-title">Create MDM Account</h3>
+        <p class="process-desc">Sign up on the MDM platform to get started.</p>
       </div>
-      <div class="vsl-cta-reveal" id="vslCta">
-        <p>Ready to join the community that's actually changing lives?</p>
-        <a class="btn-main" href="#pricing">YES — I Want to Join MDM Community →</a>
-        <a class="btn-main-ghost" href="#pricing">View plans and pricing</a>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3 class="process-title">Connect HFM Account</h3>
+        <p class="process-desc">Link your HFM trading account for live signals.</p>
       </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3 class="process-title">Access Everything Free</h3>
+        <p class="process-desc">Unlock courses, tools, community & live sessions — $0/mo.</p>
+      </div>
+    </div>
+    <div class="free-banner reveal">
+      <div class="free-price">$0<span>/mo</span></div>
+      <div class="free-value">Valued at <strong>$2,999</strong></div>
+      <a class="btn-main" href="#pricing">Get Started Free →</a>
     </div>
   </div>
 </section>
@@ -952,8 +1050,8 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 <div class="ticker-wrap">
   <div class="ticker-inner">
     <span class="tick-item">🔥 <em>Kagiso</em> from Soweto — first R4,200 profit this week</span>
-    <span class="tick-item">📈 <em>Thabo</em> from Durban — first green week using MDM signals</span>
-    <span class="tick-item">🏆 <em>Amahle</em> from Cape Town — quit her 9–5 after 8 months in MDM</span>
+    <span class="tick-item">📈 <em>Thabo</em> from Durban — first green week using LFWD signals</span>
+    <span class="tick-item">🏆 <em>Amahle</em> from Cape Town — quit her 9–5 after 8 months in LFWD</span>
     <span class="tick-item">🔥 <em>Sipho</em> from Joburg — went from blowing 3 accounts to profitable in 60 days</span>
   </div>
 </div>
@@ -962,18 +1060,19 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   <div class="section-inner">
     <div class="story-grid">
       <div class="story-portrait reveal">
-        <div class="portrait-watermark">MDM</div><div class="portrait-lines"></div>
+        <div class="portrait-watermark"></div><div class="portrait-lines"></div>
+        <img src="" alt="Founder Portrait" class="portrait-img" />
         <div class="portrait-tag">
           <div class="portrait-name">Dwayno</div>
           <div class="portrait-ig">@livefullywithdwayno · Forex & Indices Trader</div>
         </div>
       </div>
       <div class="story-content">
-        <div class="tag reveal">The person behind MDM</div>
+        <div class="tag reveal">The person behind LFWD</div>
         <h2 class="reveal">From Broke<br>to <span>Building</span><br>Real Freedom</h2>
         <p class="reveal">Dwayno didn't come from money. Early on he sat at screens for years — blew accounts, studied charts obsessively, and eventually cracked something real.</p>
         <div class="pull-quote reveal">"I didn't just want to be profitable. I wanted to live fully — and trade freely."</div>
-        <a class="btn-main reveal" href="#pricing">Join MDM Community →</a>
+        <a class="btn-main reveal" href="#pricing">Join LFWD Community →</a>
       </div>
     </div>
   </div>
@@ -982,7 +1081,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 <section id="benefits" class="section" style="background: #0A0D14; border-top: 1px solid var(--border);">
   <div class="section-inner">
     <div class="text-center reveal">
-      <div class="tag">Why MDM Works</div>
+      <div class="tag">Why LFWD Works</div>
       <h2 class="s-h2">The <span>Core Benefits</span> of Joining</h2>
       <p class="s-body">We don't just give you a strategy. We give you the entire ecosystem required to actually win in the markets over the long term.</p>
     </div>
@@ -1000,7 +1099,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
         <p class="ben-body">Connect with 2,400+ traders scaling together. Real-time feedback and support.</p>
       </div>
       <div class="benefit-card reveal">
-        <span class="ben-icon">⚔️</span><h3 class="ben-title">The MDM Edge</h3>
+        <span class="ben-icon">⚔️</span><h3 class="ben-title">The LFWD Edge</h3>
         <p class="ben-body">A battle-tested methodology engineered for high-probability setups.</p>
       </div>
     </div>
@@ -1036,7 +1135,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   <div class="section-inner">
     <div class="inside-head reveal text-center">
       <div class="tag">What's Inside</div>
-      <h2 class="s-h2">The MDM <span>Ecosystem</span></h2>
+      <h2 class="s-h2">The LFWD <span>Ecosystem</span></h2>
     </div>
     <div class="module-list reveal">
       <div class="module"><div class="mod-num">01</div><div><div class="mod-title">Core Methodology</div><div class="mod-desc">The full system Dwayno uses every day.</div></div><div class="mod-tag">Foundation</div></div>
@@ -1058,7 +1157,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
       <h2 class="s-h2">Member <span>Success Stories</span></h2>
     </div>
     <div class="testi-grid reveal">
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">I blew 2 accounts before MDM. Now I'm consistent.</p><div class="t-row"><div class="av">LM</div><div><div class="t-name">Lungelo M.</div><div class="t-loc">Joburg</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">I blew 2 accounts before LFWD. Now I'm consistent.</p><div class="t-row"><div class="av">LM</div><div><div class="t-name">Lungelo M.</div><div class="t-loc">Joburg</div></div></div></div>
       <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">Dwayno’s live sessions are a game changer.</p><div class="t-row"><div class="av">NK</div><div><div class="t-name">Nandi K.</div><div class="t-loc">Durban</div></div></div></div>
     </div>
     <div class="results-strip reveal">
@@ -1071,21 +1170,32 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 <section id="pricing" class="section">
   <div class="section-inner">
     <div class="pricing-head reveal text-center">
-      <div class="tag">Choose your path</div>
-      <h2 class="s-h2">Join MDM <span>Trading</span> Community</h2>
+      <div class="tag">Complete access</div>
+      <h2 class="s-h2">Join LFWD <span>Free</span></h2>
     </div>
-    <div class="plans reveal">
-      <div class="plan">
-        <div class="plan-name">MDM Core</div><div class="plan-price" style="font-size: 48px; font-weight: 900; color: #fff;">R397</div><div class="plan-period">per month</div>
-        <button class="plan-btn outline" onclick="window.location.href='#pricing'">Start with Core →</button>
-      </div>
-      <div class="plan featured">
-        <div class="plan-name">MDM Elite</div><div class="plan-price" style="font-size: 48px; font-weight: 900; color: #fff;">R797</div><div class="plan-period">per month</div>
-        <div style="margin: 20px 0; padding: 15px; background: rgba(59,130,246,0.1); border-left: 3px solid var(--gold);">
-          <div style="font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">Elite Exclusive</div>
-          <p style="font-size: 13px; color: var(--muted); margin-top: 5px;">Includes **Weekly Live Masterclasses** and **Direct 1-on-1 Mentorship** access.</p>
+    <div class="free-plan-box reveal">
+      <div class="plan-content">
+        <div class="plan-name" style="font-size: 24px; font-weight: 900; color: var(--gold); margin-bottom: 12px;">LFWD Community</div>
+        <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 24px;">
+          <div style="font-size: 56px; font-weight: 900; color: #fff;">$0</div>
+          <div style="font-size: 14px; color: var(--muted);">per month</div>
         </div>
-        <button class="plan-btn" onclick="window.location.href='#pricing'">Join MDM Elite →</button>
+        <div style="background: rgba(59,130,246,0.1); border-left: 3px solid var(--gold); padding: 16px; margin-bottom: 24px;">
+          <div style="font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;">Valued at $2,999</div>
+          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">You get unlimited access to courses, live signals, community support, and trading tools. No credit card required.</p>
+        </div>
+        <div style="border-top: 1px solid var(--border); padding-top: 20px; margin-bottom: 24px;">
+          <div style="font-size: 12px; font-weight: 700; color: var(--white); margin-bottom: 12px; letter-spacing: 0.08em;">INCLUDES:</div>
+          <ul style="list-style: none; font-size: 14px; color: var(--muted); line-height: 2;">
+            <li>✓ Full trading methodology course</li>
+            <li>✓ Daily live trading signals</li>
+            <li>✓ Weekly masterclasses with Dwayno</li>
+            <li>✓ Private community & support</li>
+            <li>✓ Advanced charting & trading tools</li>
+            <li>✓ Prop firm preparation guides</li>
+          </ul>
+        </div>
+        <button class="plan-btn" onclick="window.location.href='#pricing'">Get Started Free →</button>
       </div>
     </div>
   </div>
@@ -1106,18 +1216,18 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 
 <section id="cta-close">
   <div class="cta-close-inner">
-    <div class="scarcity reveal"><span class="dot"></span>Limited spots — MDM Elite is open</div>
+    <div class="scarcity reveal"><span class="dot"></span>Free access — no credit card required</div>
     <h2 class="reveal">Your Next Trade Could <span>Be Different.</span></h2>
-    <a class="btn-main reveal" href="#pricing">Join MDM Trading Community →</a>
+    <a class="btn-main reveal" href="#pricing">Start Free on LFWD →</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-top" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; border-bottom:1px solid var(--border); padding-bottom:30px; margin-bottom:30px;">
-    <div class="f-logo">MDM Trading<sub>by @livefullywithdwayno</sub></div>
+    <div class="f-logo">LFWD<sub>by @livefullywithdwayno</sub></div>
     <div class="f-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="https://instagram.com/livefullywithdwayno" target="_blank">Instagram</a></div>
   </div>
-  <p style="font-size: 10px; color: var(--muted2); line-height:1.7;">© 2025 MDM Trading · All rights reserved · Trade responsibly.</p>
+  <p style="font-size: 10px; color: var(--muted2); line-height:1.7;">© 2025 LFWD · All rights reserved · Trade responsibly.</p>
 </footer>
 
 <script>
@@ -1136,34 +1246,6 @@ function faqToggle(el) {
   document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
   if (!open) el.classList.add('open');
 }
-
-let vslPlaying = false;
-let vslSeconds = 0;
-let vslInterval = null;
-const TOTAL_SECONDS = 47 * 60;
-const playBtn = document.getElementById('playBtn');
-const vslThumb = document.getElementById('vslThumb');
-const vslTimer = document.getElementById('vslTimer');
-const vslProgress = document.getElementById('vslProgress');
-const vslCta = document.getElementById('vslCta');
-const vslContainer = document.getElementById('vslContainer');
-
-function startVSL() {
-  if (vslPlaying) return;
-  vslPlaying = true;
-  vslThumb.style.opacity = '0';
-  vslThumb.style.pointerEvents = 'none';
-  vslTimer.style.display = 'block';
-  setTimeout(() => { vslCta.classList.add('show'); }, 2000);
-  vslInterval = setInterval(() => {
-    vslSeconds++;
-    if (vslTimer) vslTimer.textContent = `${Math.floor(vslSeconds/60).toString().padStart(2,'0')}:${(vslSeconds%60).toString().padStart(2,'0')}`;
-    if (vslProgress) vslProgress.style.width = ((vslSeconds / TOTAL_SECONDS) * 100) + '%';
-    if (vslSeconds >= TOTAL_SECONDS) clearInterval(vslInterval);
-  }, 1000);
-}
-if (playBtn) playBtn.addEventListener('click', startVSL);
-if (vslContainer) vslContainer.addEventListener('click', () => { if (!vslPlaying) startVSL(); });
 </script>
 
 </body>
