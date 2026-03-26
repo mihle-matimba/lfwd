@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDM x LFWD — Funnel Tracker Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #0A0D14;
+  color: #F2F5F8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════
+   HEADER
+════════════════════════════════ */
+header {
+  background: rgba(10,13,20,0.96);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(59,130,246,0.16);
+  padding: 24px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3B82F6;
+}
+
+.header-subtitle {
+  font-size: 11px;
+  color: rgba(242,245,248,0.48);
+  margin-top: 4px;
+}
+
+.last-updated {
+  font-size: 11px;
+  color: rgba(242,245,248,0.48);
+  font-weight: 500;
+}
+
+/* ════════════════════════════════
+   MAIN LAYOUT
+════════════════════════════════ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 6%;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* ════════════════════════════════
+   METRIC CARD
+════════════════════════════════ */
+.metric-card {
+  background: #0F172A;
+  border: 1px solid rgba(59,130,246,0.16);
+  padding: 32px;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.metric-card:hover {
+  border-color: rgba(59,130,246,0.40);
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #3B82F6;
+  margin-bottom: 12px;
+}
+
+.metric-value {
+  font-size: 56px;
+  font-weight: 900;
+  color: #F2F5F8;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.metric-subtitle {
+  font-size: 12px;
+  color: rgba(242,245,248,0.48);
+  margin-bottom: 20px;
+}
+
+.metric-change {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.metric-change.positive {
+  color: #10B981;
+}
+
+.metric-change.negative {
+  color: #EF4444;
+}
+
+/* ════════════════════════════════
+   FUNNEL VISUALIZATION
+════════════════════════════════ */
+.funnel-section {
+  background: #0F172A;
+  border: 1px solid rgba(59,130,246,0.16);
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.funnel-title {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  color: #F2F5F8;
+  letter-spacing: 0.04em;
+}
+
+.funnel-stage {
+  display: grid;
+  grid-template-columns: 1fr 100px 80px;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(59,130,246,0.08);
+}
+
+.funnel-stage:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.stage-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(242,245,248,0.88);
+}
+
+.stage-count {
+  font-size: 20px;
+  font-weight: 900;
+  color: #3B82F6;
+  text-align: right;
+}
+
+.stage-conversion {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(59,130,246,0.8);
+  text-align: right;
+}
+
+.stage-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(59,130,246,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.stage-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #60A5FA);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* ════════════════════════════════
+   STATS SUMMARY
+════════════════════════════════ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: #0F172A;
+  border: 1px solid rgba(59,130,246,0.16);
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(242,245,248,0.48);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.summary-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: #3B82F6;
+}
+
+.summary-desc {
+  font-size: 11px;
+  color: rgba(242,245,248,0.38);
+  margin-top: 8px;
+}
+
+/* ════════════════════════════════
+   BUTTONS
+════════════════════════════════ */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+button {
+  background: #3B82F6;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #60A5FA;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid rgba(59,130,246,0.4);
+  color: #3B82F6;
+}
+
+button.secondary:hover {
+  background: rgba(59,130,246,0.1);
+}
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 900px) {
+  header { flex-direction: column; text-align: center; gap: 12px; }
+  .container { padding: 30px 4%; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .metric-value { font-size: 40px; }
+  .summary-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .header-title { font-size: 16px; }
+  .metric-value { font-size: 32px; }
+  .metric-card { padding: 24px; }
+  .funnel-section { padding: 20px; }
+  .funnel-stage { grid-template-columns: 1fr; gap: 12px; }
+  .stage-count, .stage-conversion { text-align: left; }
+  .button-group { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="header-title">Funnel Tracker</div>
+    <div class="header-subtitle">MDM x LFWD Conversion Metrics</div>
+  </div>
+  <div class="last-updated">Last updated: <span id="updateTime">Just now</span></div>
+</header>
+
+<div class="container">
+  
+  <!-- Top Metrics -->
+  <div class="dashboard-grid">
+    <div class="metric-card">
+      <div class="metric-label">Total Page Views</div>
+      <div class="metric-value" id="pageViews">0</div>
+      <div class="metric-subtitle">Unique visitors to landing page</div>
+      <div class="metric-change positive">
+        <span>↑</span> <span id="pageViewsChange">0</span> today
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">MDM Pass Throughs</div>
+      <div class="metric-value" id="mdmPassThru">0</div>
+      <div class="metric-subtitle">Clicked CTA to MDM Traders</div>
+      <div class="metric-change positive">
+        <span>↑</span> <span id="mdmPassThruChange">0</span> today
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">MDM Account Creations</div>
+      <div class="metric-value" id="mdmAccounts">0</div>
+      <div class="metric-subtitle">Users who signed up on MDM</div>
+      <div class="metric-change positive">
+        <span>↑</span> <span id="mdmAccountsChange">0</span> today
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">HFM Account Creations</div>
+      <div class="metric-value" id="hfmAccounts">0</div>
+      <div class="metric-subtitle">Connected trading accounts</div>
+      <div class="metric-change positive">
+        <span>↑</span> <span id="hfmAccountsChange">0</span> today
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">Total Deposits</div>
+      <div class="metric-value" id="totalDeposits">R0</div>
+      <div class="metric-subtitle">Client deposit amount</div>
+      <div class="metric-change positive">
+        <span>↑</span> R<span id="depositsChange">0</span> today
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-label">Estimated Commission</div>
+      <div class="metric-value" id="commission">R0</div>
+      <div class="metric-subtitle">20% commission estimate</div>
+      <div class="metric-change positive">
+        <span>↑</span> R<span id="commissionChange">0</span> today
+      </div>
+    </div>
+  </div>
+
+  <!-- Funnel Visualization -->
+  <div class="funnel-section">
+    <div class="funnel-title">Conversion Funnel</div>
+    
+    <div class="funnel-stage">
+      <div class="stage-bar"><div class="stage-bar-fill" style="width: 100%;"></div></div>
+      <div class="stage-name">Page Views</div>
+      <div class="stage-count" id="funnelPageViews">0</div>
+      <div class="stage-conversion">100%</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="stage-bar"><div class="stage-bar-fill" id="passThroughBar" style="width: 0%;"></div></div>
+      <div class="stage-name">MDM Pass Through</div>
+      <div class="stage-count" id="funnelPassThru">0</div>
+      <div class="stage-conversion" id="passThroughRate">0%</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="stage-bar"><div class="stage-bar-fill" id="mdmAccountBar" style="width: 0%;"></div></div>
+      <div class="stage-name">MDM Accounts Created</div>
+      <div class="stage-count" id="funnelMdmAccounts">0</div>
+      <div class="stage-conversion" id="mdmAccountRate">0%</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="stage-bar"><div class="stage-bar-fill" id="hfmAccountBar" style="width: 0%;"></div></div>
+      <div class="stage-name">HFM Accounts Created</div>
+      <div class="stage-count" id="funnelHfmAccounts">0</div>
+      <div class="stage-conversion" id="hfmAccountRate">0%</div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="stage-bar"><div class="stage-bar-fill" id="depositsBar" style="width: 0%;"></div></div>
+      <div class="stage-name">Deposits Made</div>
+      <div class="stage-count" id="funnelDeposits">0</div>
+      <div class="stage-conversion" id="depositsRate">0%</div>
+    </div>
+  </div>
+
+  <!-- Summary Stats -->
+  <div class="summary-grid" style="margin-top: 40px;">
+    <div class="summary-item">
+      <div class="summary-label">Conversion Rate</div>
+      <div class="summary-value" id="conversionRate">0%</div>
+      <div class="summary-desc">Page Views → Deposits</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Avg Deposit</div>
+      <div class="summary-value" id="avgDeposit">R0</div>
+      <div class="summary-desc">Per depositing client</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Revenue This Month</div>
+      <div class="summary-value" id="monthlyRevenue">R0</div>
+      <div class="summary-desc">Est. commission earnings</div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="button-group">
+    <button onclick="generateMockData()">Generate Test Data</button>
+    <button class="secondary" onclick="resetData()">Reset Dashboard</button>
+    <button class="secondary" onclick="exportData()">Export Report</button>
+  </div>
+
+</div>
+
+<script>
+// Data storage (persists in localStorage)
+const storageKey = 'mdmFunnelData';
+
+function initializeData() {
+  const existing = localStorage.getItem(storageKey);
+  if (!existing) {
+    localStorage.setItem(storageKey, JSON.stringify({
+      pageViews: 0,
+      mdmPassThru: 0,
+      mdmAccounts: 0,
+      hfmAccounts: 0,
+      totalDeposits: 0,
+      commission: 0,
+      lastUpdated: new Date().toISOString()
+    }));
+  }
+}
+
+function getData() {
+  return JSON.parse(localStorage.getItem(storageKey));
+}
+
+function updateData(updates) {
+  const current = getData();
+  const updated = { ...current, ...updates, lastUpdated: new Date().toISOString() };
+  localStorage.setItem(storageKey, JSON.stringify(updated));
+  updateDashboard();
+}
+
+function formatNumber(num) {
+  return Math.round(num).toLocaleString();
+}
+
+function formatCurrency(num) {
+  return 'R' + formatNumber(num);
+}
+
+function updateDashboard() {
+  const data = getData();
+  
+  // Update metric cards
+  document.getElementById('pageViews').textContent = formatNumber(data.pageViews);
+  document.getElementById('mdmPassThru').textContent = formatNumber(data.mdmPassThru);
+  document.getElementById('mdmAccounts').textContent = formatNumber(data.mdmAccounts);
+  document.getElementById('hfmAccounts').textContent = formatNumber(data.hfmAccounts);
+  document.getElementById('totalDeposits').textContent = formatCurrency(data.totalDeposits);
+  document.getElementById('commission').textContent = formatCurrency(data.commission);
+  
+  // Calculate conversion rates
+  const passThroughRate = data.pageViews > 0 ? (data.mdmPassThru / data.pageViews * 100).toFixed(1) : 0;
+  const mdmAccountRate = data.mdmPassThru > 0 ? (data.mdmAccounts / data.mdmPassThru * 100).toFixed(1) : 0;
+  const hfmAccountRate = data.mdmAccounts > 0 ? (data.hfmAccounts / data.mdmAccounts * 100).toFixed(1) : 0;
+  const depositsRate = data.hfmAccounts > 0 ? (data.hfmAccounts / data.hfmAccounts * 100).toFixed(1) : 0;
+  const conversionRate = data.pageViews > 0 ? (data.hfmAccounts / data.pageViews * 100).toFixed(2) : 0;
+  
+  // Update funnel stages
+  document.getElementById('funnelPageViews').textContent = formatNumber(data.pageViews);
+  document.getElementById('funnelPassThru').textContent = formatNumber(data.mdmPassThru);
+  document.getElementById('funnelMdmAccounts').textContent = formatNumber(data.mdmAccounts);
+  document.getElementById('funnelHfmAccounts').textContent = formatNumber(data.hfmAccounts);
+  document.getElementById('funnelDeposits').textContent = formatNumber(data.hfmAccounts);
+  
+  // Update conversion rates
+  document.getElementById('passThroughRate').textContent = passThroughRate + '%';
+  document.getElementById('mdmAccountRate').textContent = mdmAccountRate + '%';
+  document.getElementById('hfmAccountRate').textContent = hfmAccountRate + '%';
+  document.getElementById('depositsRate').textContent = depositsRate + '%';
+  
+  // Update bar widths
+  document.getElementById('passThroughBar').style.width = passThroughRate + '%';
+  document.getElementById('mdmAccountBar').style.width = mdmAccountRate + '%';
+  document.getElementById('hfmAccountBar').style.width = hfmAccountRate + '%';
+  document.getElementById('depositsBar').style.width = depositsRate + '%';
+  
+  // Update summary
+  document.getElementById('conversionRate').textContent = conversionRate + '%';
+  document.getElementById('avgDeposit').textContent = data.hfmAccounts > 0 ? formatCurrency(data.totalDeposits / data.hfmAccounts) : 'R0';
+  document.getElementById('monthlyRevenue').textContent = formatCurrency(data.commission);
+  
+  // Update timestamp
+  const updated = new Date(data.lastUpdated);
+  const now = new Date();
+  const diff = Math.round((now - updated) / 1000);
+  if (diff < 60) {
+    document.getElementById('updateTime').textContent = 'Just now';
+  } else if (diff < 3600) {
+    document.getElementById('updateTime').textContent = Math.round(diff / 60) + ' min ago';
+  } else {
+    document.getElementById('updateTime').textContent = updated.toLocaleTimeString();
+  }
+}
+
+function generateMockData() {
+  const data = getData();
+  const newPageViews = Math.floor(Math.random() * 500) + 100;
+  const newPassThru = Math.floor(newPageViews * (Math.random() * 0.3 + 0.1));
+  const newMdmAccounts = Math.floor(newPassThru * (Math.random() * 0.4 + 0.15));
+  const newHfmAccounts = Math.floor(newMdmAccounts * (Math.random() * 0.5 + 0.2));
+  const newDeposits = newHfmAccounts * (Math.random() * 30000 + 5000);
+  const newCommission = newDeposits * 0.2;
+  
+  updateData({
+    pageViews: data.pageViews + newPageViews,
+    mdmPassThru: data.mdmPassThru + newPassThru,
+    mdmAccounts: data.mdmAccounts + newMdmAccounts,
+    hfmAccounts: data.hfmAccounts + newHfmAccounts,
+    totalDeposits: data.totalDeposits + newDeposits,
+    commission: data.commission + newCommission
+  });
+  
+  alert('✅ Mock data generated!');
+}
+
+function resetData() {
+  if (confirm('Are you sure you want to reset all data?')) {
+    localStorage.removeItem(storageKey);
+    initializeData();
+    updateDashboard();
+    alert('✅ Dashboard reset!');
+  }
+}
+
+function exportData() {
+  const data = getData();
+  const csv = `Funnel Tracker Report
+Generated: ${new Date().toLocaleString()}
+
+Page Views,${data.pageViews}
+MDM Pass Throughs,${data.mdmPassThru}
+MDM Account Creations,${data.mdmAccounts}
+HFM Account Creations,${data.hfmAccounts}
+Total Deposits,R${data.totalDeposits}
+Estimated Commission,R${data.commission}`;
+  
+  const element = document.createElement('a');
+  element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv));
+  element.setAttribute('download', 'funnel-report.csv');
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+  alert('✅ Report exported!');
+}
+
+// Initialize on page load
+initializeData();
+updateDashboard();
+
+// Auto-update every 10 seconds
+setInterval(updateDashboard, 10000);
+</script>
+
+</body>
+</html>
