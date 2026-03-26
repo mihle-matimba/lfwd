@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LFWD — Free Trading Education & Community</title>
+<title>MDM x LFWD — Free Trading Education & Community</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -968,13 +968,163 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
    RESPONSIVE
 ════════════════════════════════ */
 @media (max-width: 900px) {
-  .story-grid { grid-template-columns: 1fr; }
+  body { font-size: 14px; }
+  
+  nav { padding: 14px 4%; }
+  .nav-cta { padding: 8px 18px; font-size: 10px; }
+  
+  .hero-h1 { font-size: clamp(28px, 5vw, 48px); }
+  .hero-sub { font-size: 14px; padding: 0 20px; }
+  
+  .topbar { padding: 8px 15px; font-size: 11px; }
+  .topbar span { font-size: 9px; }
+  
+  .process-steps { grid-template-columns: 1fr; gap: 24px; padding: 0 20px; }
+  .process-num { font-size: 36px; }
+  .process-title { font-size: 14px; }
+  .process-desc { font-size: 12px; }
+  
+  .free-banner { padding: 36px 24px; }
+  .free-price { font-size: 48px; }
+  .free-price span { font-size: 16px; }
+  
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-portrait { aspect-ratio: 2/3; }
+  .story-content h2 { font-size: clamp(24px, 3.5vw, 36px); }
+  
   .pain-grid { grid-template-columns: 1fr; }
+  .p-title { font-size: 14px; }
+  .p-body { font-size: 13px; }
+  
   .testi-grid { grid-template-columns: 1fr; }
+  .testi-q { font-size: 14px; }
+  
   .results-strip { grid-template-columns: 1fr 1fr; }
-  .process-steps { grid-template-columns: 1fr; }
-  .roadmap { flex-direction: column; align-items: center; }
+  .result-n { font-size: 32px; }
+  
+  .free-plan-box { padding: 40px 24px; }
+  .plan-btn { padding: 14px 20px; font-size: 12px; }
+  
+  .faq-q { font-size: 14px; padding: 16px 0; }
+  .faq-a { font-size: 13px; }
+  
+  .benefit-card { padding: 30px 20px; }
+  .ben-title { font-size: 16px; }
+  .ben-body { font-size: 13px; }
+  
+  .roadmap { flex-direction: column; align-items: center; gap: 32px; }
   .roadmap::before { display: none; }
+  .step-dot { width: 48px; height: 48px; font-size: 16px; }
+  .step-title { font-size: 12px; }
+  .step-desc { font-size: 11px; }
+  
+  .cta-close-inner h2 { font-size: clamp(28px, 5vw, 48px); }
+  .btn-main { padding: 16px 32px; font-size: 12px; }
+  
+  .module { grid-template-columns: 48px 1fr auto; gap: 16px; padding: 20px 16px; }
+  .mod-num { font-size: 24px; }
+  .mod-title { font-size: 13px; }
+  .mod-desc { font-size: 12px; }
+  .mod-tag { font-size: 8px; }
+  
+  .bonus-row { grid-template-columns: 1fr; }
+  .bonus-card { padding: 20px 16px; }
+  
+  .proof-row { padding: 20px 4%; gap: 16px; flex-direction: column; }
+  .proof-item { font-size: 11px; }
+  .proof-divider { display: none; }
+  
+  .section { padding: 60px 4%; }
+  .s-h2 { font-size: clamp(24px, 4vw, 40px); }
+  .s-body { font-size: 14px; }
+}
+
+/* ════════════════════════════════
+   EXTRA SMALL MOBILE (< 600px)
+════════════════════════════════ */
+@media (max-width: 600px) {
+  body { font-size: 13px; }
+  
+  nav { padding: 12px 3%; flex-direction: column; gap: 12px; }
+  .logo { font-size: 9px; }
+  .logo sub { font-size: 7px; }
+  .nav-cta { width: 100%; }
+  
+  .hero-h1 { font-size: clamp(24px, 6vw, 32px); line-height: 1.1; }
+  .hero-sub { font-size: 13px; line-height: 1.6; margin: 16px auto 32px; }
+  .hero-eyebrow { gap: 6px; font-size: 9px; padding: 6px 16px; }
+  
+  .topbar { font-size: 10px; padding: 6px 12px; }
+  .topbar span { display: none; }
+  
+  .process-steps { gap: 16px; padding: 0 12px; }
+  .process-num { font-size: 28px; margin-bottom: 12px; }
+  .process-title { font-size: 12px; }
+  .process-desc { font-size: 11px; line-height: 1.5; }
+  
+  .free-banner { padding: 24px 16px; border-radius: 8px; }
+  .free-price { font-size: 36px; margin-bottom: 4px; }
+  .free-price span { font-size: 12px; }
+  .free-value { font-size: 13px; margin-bottom: 20px; }
+  .btn-main { padding: 14px 24px; width: 100%; }
+  
+  .story-portrait { aspect-ratio: 3/4; }
+  .portrait-name { font-size: 14px; }
+  .portrait-ig { font-size: 10px; }
+  
+  .section { padding: 40px 3%; }
+  .s-h2 { font-size: clamp(18px, 5vw, 28px); line-height: 1.1; }
+  .s-body { font-size: 13px; line-height: 1.7; }
+  .tag { font-size: 9px; }
+  
+  .benefit-card { padding: 20px 16px; gap: 8px; }
+  .ben-icon { font-size: 28px; margin-bottom: 10px; }
+  .ben-title { font-size: 14px; }
+  .ben-body { font-size: 12px; }
+  
+  .pain-card { padding: 24px 16px; }
+  .p-title { font-size: 13px; }
+  .p-body { font-size: 12px; line-height: 1.6; }
+  
+  .testi-card { padding: 20px 16px; }
+  .testi-q { font-size: 13px; line-height: 1.6; }
+  .testi-q::before { font-size: 32px; }
+  .av { width: 36px; height: 36px; font-size: 10px; }
+  .t-name { font-size: 12px; }
+  .t-loc { font-size: 10px; }
+  
+  .result-n { font-size: 24px; }
+  .result-l { font-size: 9px; }
+  
+  .free-plan-box { padding: 30px 16px; border-radius: 8px; }
+  .plan-content { text-align: center; }
+  .plan-content ul { text-align: center; font-size: 12px; }
+  .plan-btn { font-size: 11px; padding: 12px 20px; }
+  
+  .faq-q { font-size: 13px; padding: 14px 0; gap: 12px; }
+  .faq-toggle { font-size: 20px; }
+  .faq-a { font-size: 12px; }
+  .faq-item.open .faq-a { max-height: 300px; }
+  
+  .step-dot { width: 40px; height: 40px; font-size: 14px; margin: 0 auto 16px; }
+  .step-title { font-size: 11px; }
+  .step-desc { font-size: 10px; }
+  
+  .module { grid-template-columns: 40px 1fr; gap: 12px; padding: 16px 12px; }
+  .mod-num { font-size: 20px; }
+  .mod-title { font-size: 12px; }
+  .mod-desc { font-size: 11px; }
+  
+  .cta-close-inner h2 { font-size: clamp(20px, 6vw, 32px); }
+  .scarcity { font-size: 10px; margin-bottom: 20px; }
+  .scarcity .dot { width: 5px; height: 5px; }
+  
+  .ticker-wrap { padding: 8px 0; }
+  .tick-item { font-size: 10px; }
+  
+  .proof-row { padding: 16px 3%; gap: 12px; }
+  .proof-item { font-size: 10px; }
+  .proof-item strong { font-size: 14px; }
 }
 
 /* ════════════════════════════════
@@ -987,13 +1137,13 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 <body>
 
 <div class="topbar">
-  🔥 100% Free Access — LFWD Community Now Open
+  🔥 100% Free Access — MDM x LFWD Community Now Open
   <span>Start your free trading journey today</span>
 </div>
 
 <nav>
   <div class="logo">
-    LFWD
+    MDM x LFWD
     <sub>@livefullywithdwayno</sub>
   </div>
   <a class="nav-cta" href="#pricing">Join the Community →</a>
@@ -1068,11 +1218,11 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
         </div>
       </div>
       <div class="story-content">
-        <div class="tag reveal">The person behind LFWD</div>
+        <div class="tag reveal">The person behind MDM x LFWD</div>
         <h2 class="reveal">From Broke<br>to <span>Building</span><br>Real Freedom</h2>
         <p class="reveal">Dwayno didn't come from money. Early on he sat at screens for years — blew accounts, studied charts obsessively, and eventually cracked something real.</p>
         <div class="pull-quote reveal">"I didn't just want to be profitable. I wanted to live fully — and trade freely."</div>
-        <a class="btn-main reveal" href="#pricing">Join LFWD Community →</a>
+        <a class="btn-main reveal" href="#pricing">Join MDM x LFWD Community →</a>
       </div>
     </div>
   </div>
@@ -1081,7 +1231,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 <section id="benefits" class="section" style="background: #0A0D14; border-top: 1px solid var(--border);">
   <div class="section-inner">
     <div class="text-center reveal">
-      <div class="tag">Why LFWD Works</div>
+      <div class="tag">Why MDM x LFWD Works</div>
       <h2 class="s-h2">The <span>Core Benefits</span> of Joining</h2>
       <p class="s-body">We don't just give you a strategy. We give you the entire ecosystem required to actually win in the markets over the long term.</p>
     </div>
@@ -1099,7 +1249,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
         <p class="ben-body">Connect with 2,400+ traders scaling together. Real-time feedback and support.</p>
       </div>
       <div class="benefit-card reveal">
-        <span class="ben-icon">⚔️</span><h3 class="ben-title">The LFWD Edge</h3>
+        <span class="ben-icon">⚔️</span><h3 class="ben-title">The MDM x LFWD Edge</h3>
         <p class="ben-body">A battle-tested methodology engineered for high-probability setups.</p>
       </div>
     </div>
@@ -1135,7 +1285,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   <div class="section-inner">
     <div class="inside-head reveal text-center">
       <div class="tag">What's Inside</div>
-      <h2 class="s-h2">The LFWD <span>Ecosystem</span></h2>
+      <h2 class="s-h2">The MDM x LFWD <span>Ecosystem</span></h2>
     </div>
     <div class="module-list reveal">
       <div class="module"><div class="mod-num">01</div><div><div class="mod-title">Core Methodology</div><div class="mod-desc">The full system Dwayno uses every day.</div></div><div class="mod-tag">Foundation</div></div>
@@ -1171,11 +1321,11 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   <div class="section-inner">
     <div class="pricing-head reveal text-center">
       <div class="tag">Complete access</div>
-      <h2 class="s-h2">Join LFWD <span>Free</span></h2>
+      <h2 class="s-h2">Join MDM x LFWD <span>Free</span></h2>
     </div>
     <div class="free-plan-box reveal">
       <div class="plan-content">
-        <div class="plan-name" style="font-size: 24px; font-weight: 900; color: var(--gold); margin-bottom: 12px;">LFWD Community</div>
+        <div class="plan-name" style="font-size: 24px; font-weight: 900; color: var(--gold); margin-bottom: 12px;">MDM x LFWD Community</div>
         <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 24px;">
           <div style="font-size: 56px; font-weight: 900; color: #fff;">$0</div>
           <div style="font-size: 14px; color: var(--muted);">per month</div>
@@ -1218,16 +1368,16 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   <div class="cta-close-inner">
     <div class="scarcity reveal"><span class="dot"></span>Free access — no credit card required</div>
     <h2 class="reveal">Your Next Trade Could <span>Be Different.</span></h2>
-    <a class="btn-main reveal" href="#pricing">Start Free on LFWD →</a>
+    <a class="btn-main reveal" href="#pricing">Start Free on MDM x LFWD →</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-top" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; border-bottom:1px solid var(--border); padding-bottom:30px; margin-bottom:30px;">
-    <div class="f-logo">LFWD<sub>by @livefullywithdwayno</sub></div>
+    <div class="f-logo">MDM x LFWD<sub>by @livefullywithdwayno</sub></div>
     <div class="f-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="https://instagram.com/livefullywithdwayno" target="_blank">Instagram</a></div>
   </div>
-  <p style="font-size: 10px; color: var(--muted2); line-height:1.7;">© 2025 LFWD · All rights reserved · Trade responsibly.</p>
+  <p style="font-size: 10px; color: var(--muted2); line-height:1.7;">© 2025 MDM x LFWD · All rights reserved · Trade responsibly.</p>
 </footer>
 
 <script>
