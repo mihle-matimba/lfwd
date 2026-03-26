@@ -1314,6 +1314,7 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
       <div class="result-box"><div class="result-n" id="resultCount">8,340</div><div class="result-l">Members</div></div>
       <div class="result-box"><div class="result-n">R13M+</div><div class="result-l">Total Withdrawals</div></div>
       <div class="result-box"><div class="result-n">69%+</div><div class="result-l">Win Rate</div></div>
+      <div class="result-box"><div class="result-n" id="fullTimeTraders">1,668</div><div class="result-l">Full Time Traders</div></div>
     </div>
   </div>
 </section>
@@ -1402,6 +1403,7 @@ function faqToggle(el) {
 let memberCount = 8340;
 const memberCountEl = document.getElementById('memberCount');
 const resultCountEl = document.getElementById('resultCount');
+const fullTimeTradersEl = document.getElementById('fullTimeTraders');
 
 function formatNumber(num) {
   return num.toLocaleString();
@@ -1412,6 +1414,10 @@ function incrementMembers() {
   const formatted = formatNumber(memberCount);
   if (memberCountEl) memberCountEl.textContent = formatted;
   if (resultCountEl) resultCountEl.textContent = formatted;
+  
+  // Calculate full-time traders as 20% of total members
+  const fullTimeTraders = Math.floor(memberCount * 0.2);
+  if (fullTimeTradersEl) fullTimeTradersEl.textContent = formatNumber(fullTimeTraders);
 }
 
 // Increment every 2 seconds
