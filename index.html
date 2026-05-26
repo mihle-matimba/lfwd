@@ -1130,10 +1130,40 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
 /* ════════════════════════════════
    FLOATING WHATSAPP BUTTON
 ════════════════════════════════ */
-.whatsapp-float {
+.whatsapp-widget {
   position: fixed;
   bottom: 30px;
   right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 999;
+}
+
+.whatsapp-text {
+  background: #fff;
+  padding: 12px 18px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0D14;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.whatsapp-float {
   width: 60px;
   height: 60px;
   background: #fff;
@@ -1142,27 +1172,39 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
+  flex-shrink: 0;
 }
+
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
+
 .whatsapp-float img {
   width: 36px;
   height: 36px;
 }
 
 @media (max-width: 600px) {
-  .whatsapp-float {
+  .whatsapp-widget {
     bottom: 20px;
     right: 20px;
+    gap: 8px;
+  }
+
+  .whatsapp-text {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .whatsapp-float {
     width: 50px;
     height: 50px;
   }
+
   .whatsapp-float img {
     width: 28px;
     height: 28px;
@@ -1418,9 +1460,12 @@ footer { background: #000; border-top: 1px solid var(--border); padding: 40px 6%
   <p style="font-size: 10px; color: var(--muted2); line-height:1.7;">© 2026 MDM x LFWD · All rights reserved · Trade responsibly.</p>
 </footer>
 
-<a href="https://wa.me/27762271700?text=Hi%20there!%20I'd%20like%20to%20connect%20on%20WhatsApp." class="whatsapp-float" title="Contact me on WhatsApp" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.icon-icons.com/2972/PNG/512/whatsapp_logo_icon_186881.png" alt="WhatsApp" />
-</a>
+<div class="whatsapp-widget">
+  <div class="whatsapp-text">Need Help?</div>
+  <a href="https://wa.me/27762271700?text=Hi%20there!%20I'd%20like%20to%20connect%20on%20WhatsApp." class="whatsapp-float" title="Contact me on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <img src="https://images.icon-icons.com/2972/PNG/512/whatsapp_logo_icon_186881.png" alt="WhatsApp" />
+  </a>
+</div>
 
 <script>
 const revealObs = new IntersectionObserver((entries) => {
